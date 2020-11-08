@@ -9,7 +9,15 @@
 				"description": "A description of my component",
 				"category": "primitives"
 			}
-	    }
+		},
+		"hello-world": {      
+			"uiBuilder": {
+			  "associatedTypes": ["global.core", "global.landing-page"],
+			  "label": "Hello World",
+			  "icon": "chat-fill",
+			  "description": "My first hello world component for servicenow"
+			}
+		}
 	},
 	"scopeName": "x_552972_test_he_0"
 }
