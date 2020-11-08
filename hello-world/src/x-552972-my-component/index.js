@@ -4,11 +4,11 @@ import styles from './styles.scss';
 
 const view = (state, {updateState}) => {
 	return (
-		<div>Hello World!</div>
+		<div>My name is Anna! It's my first component.</div>
 	);
 };
 
-createCustomElement('hello-world', {
+createCustomElement('x-552972-my-component', {
 	renderer: {type: snabbdom},
 	view,
 	styles

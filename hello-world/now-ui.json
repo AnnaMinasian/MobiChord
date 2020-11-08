@@ -4,18 +4,19 @@
 	        "innerComponents": [],
 			"uiBuilder": {
 				"associatedTypes": ["global.core", "global.landing-page"],
-				"label": "My Component",
+				"label": "Hello World",
 				"icon": "document-outline",
 				"description": "A description of my component",
 				"category": "primitives"
 			}
 		},
-		"hello-world": {      
+		"x-552972-my-component": {
+				"innerComponents": [],     
 			"uiBuilder": {
 			  "associatedTypes": ["global.core", "global.landing-page"],
-			  "label": "Hello World",
+			  "label": "My Component",
 			  "icon": "chat-fill",
-			  "description": "My first hello world component for servicenow"
+			  "description": "My first component for servicenow"
 			}
 		}
 	},
