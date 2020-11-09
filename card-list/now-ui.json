@@ -1,7 +1,9 @@
 {
 	"components": {
 		"x-552972-card-list": {
-			"innerComponents": [],
+			"innerComponents": [
+				"now-template-card-assist"
+			],
 			"uiBuilder": {
 				"associatedTypes": [
 					"global.core",
