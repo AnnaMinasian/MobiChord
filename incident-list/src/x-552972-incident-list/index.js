@@ -9,7 +9,7 @@ const view = (state, { updateState }) => {
 	const { result = [] } = state;
 	return (
 		<div>
-			<h2>Incident</h2>
+			<h2>Incidents</h2>
 			<div className="container">
 				{result.map(item => {
 					return (

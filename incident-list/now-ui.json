@@ -1,15 +1,20 @@
 {
 	"components": {
-	    "x-552972-incident-list": {
-	        "innerComponents": [],
+		"x-552972-incident-list": {
+			"innerComponents": [
+				"now-template-card-assist"
+			],
 			"uiBuilder": {
-				"associatedTypes": ["global.core", "global.landing-page"],
-				"label": "My Component",
-				"icon": "document-outline",
-				"description": "A description of my component",
+				"associatedTypes": [
+					"global.core",
+					"global.landing-page"
+				],
+				"label": "Incient List",
+				"icon": "list-fill",
+				"description": "My incient list component for servicenow",
 				"category": "primitives"
 			}
-	    }
+		}
 	},
 	"scopeName": "x_552972_test_in_0"
 }
