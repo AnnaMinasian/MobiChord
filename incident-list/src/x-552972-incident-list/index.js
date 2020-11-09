@@ -10,40 +10,42 @@ const view = (state, { updateState }) => {
 	return (
 		<div>
 			<h2>Incident</h2>
-			{result.map(item => {
-				return (
-					<div>
-						<now-template-card-assist
-							tagline={{ "icon": "tree-view-long-outline", "label": "Incident" }}
-							actions={[]}
-							heading={{ "label": item.short_description }}
-							content={[
-								{
-									"label": "Number", "value": {
-										"type": "string", "value": item.number
-									}
-								},
-								{
-									"label": "State", "value": {
-										"type": "string", "value": item.state
-									}
-								},
-								{
-									"label": "AssignmentGroup", "value": {
-										"type": "string", "value": item.assignment_group.display_value
-									}
-								},
-								{
-									"label": "Assigned To", "value": {
-										"type": "string", "value": item.assigned_to.display_value
-									}
-								}]}
-							contentItemMinWidth="300" footerContent={{ "label": "Updated", "value": item.sys_updated_on }}
-							configAria={{}}>
-						</now-template-card-assist>
-					</div>
-				)
-			})}
+			<div className="container">
+				{result.map(item => {
+					return (
+						<div>
+							<now-template-card-assist
+								tagline={{ "icon": "tree-view-long-outline", "label": "Incident" }}
+								actions={[]}
+								heading={{ "label": item.short_description }}
+								content={[
+									{
+										"label": "Number", "value": {
+											"type": "string", "value": item.number
+										}
+									},
+									{
+										"label": "State", "value": {
+											"type": "string", "value": item.state
+										}
+									},
+									{
+										"label": "AssignmentGroup", "value": {
+											"type": "string", "value": item.assignment_group.display_value
+										}
+									},
+									{
+										"label": "Assigned To", "value": {
+											"type": "string", "value": item.assigned_to.display_value
+										}
+									}]}
+								contentItemMinWidth="300" footerContent={{ "label": "Updated", "value": item.sys_updated_on }}
+								configAria={{}}>
+							</now-template-card-assist>
+						</div>
+					)
+				})}
+			</div>
 		</div>
 	);
 };

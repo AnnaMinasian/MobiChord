@@ -1,1 +1,19 @@
 @import '@servicenow/sass-kit/host';
+
+h2 {
+    font-size: 1.5rem;
+    text-align: center;
+}
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+}
+.container div {
+    width: 550px;
+    min-width: 350px;
+    margin: 10px;
+}
