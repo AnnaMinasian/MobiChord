@@ -21,7 +21,8 @@
 		"@servicenow/cli-component-archetype": "18.0.0",
 		"@servicenow/sass-theme": "paris",
 		"@servicenow/sass-kit": "paris",
-		"@servicenow/library-translate": "paris"
+		"@servicenow/library-translate": "paris",
+		"@servicenow/now-template-card": "18.4.2"
 	},
 	"devDependencies": {
 		"@servicenow/cli-archetype-dev": "18.0.0",
