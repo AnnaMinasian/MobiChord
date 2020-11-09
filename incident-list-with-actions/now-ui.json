@@ -1,15 +1,22 @@
 {
 	"components": {
-	    "x-552972-incident-list-with-actions": {
-	        "innerComponents": [],
+		"x-552972-incident-list-with-actions": {
+			"innerComponents": [
+				"now-template-card-assist",
+				"now-modal",
+				"now-input"
+			],
 			"uiBuilder": {
-				"associatedTypes": ["global.core", "global.landing-page"],
-				"label": "My Component",
-				"icon": "document-outline",
-				"description": "A description of my component",
+				"associatedTypes": [
+					"global.core",
+					"global.landing-page"
+				],
+				"label": "Incodent List with actions",
+				"icon": "list-fill",
+				"description": "My incident list component with actions for servicenow",
 				"category": "primitives"
 			}
-	    }
+		}
 	},
 	"scopeName": "x_552972_test_in_1"
 }
