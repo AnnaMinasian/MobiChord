@@ -1,15 +1,18 @@
 {
 	"components": {
-	    "x-552972-card-list": {
-	        "innerComponents": [],
+		"x-552972-card-list": {
+			"innerComponents": [],
 			"uiBuilder": {
-				"associatedTypes": ["global.core", "global.landing-page"],
-				"label": "My Component",
-				"icon": "document-outline",
-				"description": "A description of my component",
+				"associatedTypes": [
+					"global.core",
+					"global.landing-page"
+				],
+				"label": "Card List",
+				"icon": "list-fill",
+				"description": "My card list component for servicenow",
 				"category": "primitives"
 			}
-	    }
+		}
 	},
 	"scopeName": "x_552972_test_ca_0"
 }
