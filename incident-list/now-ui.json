@@ -9,7 +9,7 @@
 					"global.core",
 					"global.landing-page"
 				],
-				"label": "Incient List",
+				"label": "Incident List",
 				"icon": "list-fill",
 				"description": "My incient list component for servicenow",
 				"category": "primitives"
