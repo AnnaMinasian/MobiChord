@@ -4,7 +4,8 @@
 			"innerComponents": [
 				"now-template-card-assist",
 				"now-modal",
-				"now-input"
+				"now-input",
+				"now-loader"
 			],
 			"uiBuilder": {
 				"associatedTypes": [

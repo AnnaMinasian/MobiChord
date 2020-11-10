@@ -11,7 +11,9 @@ import {
     OPEN_INCIDENT_MODAL,
     NOW_MODAL_FOOTER_ACTION_CLICKED,
     NOW_MODAL_OPENED_SET,
-    CLOSE_MODAL
+    CLOSE_MODAL,
+    SHOW_LOADING,
+    HIDE_LOADING
 } from './actions';
 const { COMPONENT_BOOTSTRAPPED } = actionTypes;
 
@@ -19,10 +21,21 @@ export default {
     actionHandlers: {
         [COMPONENT_BOOTSTRAPPED]: (coeffects) => {
             const { dispatch } = coeffects;
-
+            dispatch(SHOW_LOADING);
             dispatch(FETCH_INCIDENTS, {
-                sysparm_display_value: true
+                sysparm_display_value: true,
             });
+        },
+        [SHOW_LOADING]: ({
+            updateState,
+        }) => {
+            updateState({ showLoading: true });
+        },
+        [HIDE_LOADING]: ({
+            updateState,
+        }) => {
+            debugger;
+            updateState({ showLoading: false });
         },
         [FETCH_INCIDENTS]: createHttpEffect('api/now/table/incident', {
             method: 'GET',
@@ -30,9 +43,9 @@ export default {
             successActionType: [FETCH_INCIDENTS_SUCCESS]
         }),
         [FETCH_INCIDENTS_SUCCESS]: (coeffects) => {
-            const { action, updateState } = coeffects;
+            const { action, updateState, dispatch } = coeffects;
             const { result } = action.payload;
-
+            dispatch(HIDE_LOADING);
             updateState({ incidents: result });
         },
         [NOW_DROPDOWN_PANEL_ITEM_CLICKED]: ({
@@ -59,6 +72,7 @@ export default {
             action,
             dispatch,
         }) => {
+            dispatch(SHOW_LOADING);
             dispatch(DELETE_INCIDENT, { sys_id: action.payload.incidentId });
         },
         [DELETE_INCIDENT]: createHttpEffect('api/now/table/incident/:sys_id', {
@@ -73,6 +87,7 @@ export default {
         },
         [DELETE_INCIDENT_FAILED]: (coeffects) => {
             // console.log(); possible logging here
+            dispatch(HIDE_LOADING);
         },
         [CLOSE_MODAL]: ({
             updateState,

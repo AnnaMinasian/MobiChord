@@ -3,11 +3,12 @@ import snabbdom from '@servicenow/ui-renderer-snabbdom';
 import '@servicenow/now-template-card';
 import '@servicenow/now-modal';
 import '@servicenow/now-input';
+import '@servicenow/now-loader';
 import styles from './styles.scss';
 import actionsHandlers from './actionHandlers';
 
 const view = (state, { updateState }) => {
-	const { incidents = [], showModal = false, currentIncident = {} } = state;
+	const { incidents = [], showModal = false, showLoading = false, currentIncident = {} } = state;
 	return (
 		<div>
 			<h2>Incidents</h2>
@@ -92,6 +93,7 @@ const view = (state, { updateState }) => {
 					></now-input>
 				</div>
 			</now-modal>
+			{showLoading ? (<div><now-loader className="loading" label="Loading" size="lg"></now-loader></div>) : ''}
 		</div >
 	);
 };
