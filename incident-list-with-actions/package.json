@@ -26,7 +26,10 @@
 		"@servicenow/ui-renderer-snabbdom": "paris",
 		"@servicenow/now-modal": "18.4.2",
 		"@servicenow/now-input": "18.4.2",
-		"@servicenow/now-loader": "18.4.2"
+		"@servicenow/now-loader": "18.4.2",
+		"@servicenow/now-button": "18.4.2",
+		"@servicenow/now-checkbox": "18.4.2",
+		"@servicenow/now-dropdown": "18.4.2"
 	},
 	"devDependencies": {
 		"@servicenow/cli-archetype-dev": "18.0.0",
