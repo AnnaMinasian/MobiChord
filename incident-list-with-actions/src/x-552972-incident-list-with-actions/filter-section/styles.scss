@@ -1,0 +1,35 @@
+@import '@servicenow/sass-kit/host';
+
+.container {
+    display: flex;
+    max-width: 800px;
+    margin: 0 auto;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    border: 1px solid gray;
+    box-sizing: border-box;
+}
+.container .modal__label {
+    width: 379px;
+    min-width: 200px;
+    margin: 10px;
+}
+h3 {
+    text-align: center;
+}
+.block {
+    display: flex;
+    flex: 1 1 100%;
+    margin: 5px 10px;
+    column-gap: 20px;
+}
+.block:first-child {
+    margin-right: 10px;
+}
+.left {
+    justify-content: flex-start;
+}
+.right {
+    justify-content: flex-end;
+}

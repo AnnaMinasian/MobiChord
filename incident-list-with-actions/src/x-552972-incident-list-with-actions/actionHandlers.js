@@ -34,7 +34,6 @@ export default {
         [HIDE_LOADING]: ({
             updateState,
         }) => {
-            debugger;
             updateState({ showLoading: false });
         },
         [FETCH_INCIDENTS]: createHttpEffect('api/now/table/incident', {

@@ -5,7 +5,9 @@
 				"now-template-card-assist",
 				"now-modal",
 				"now-input",
-				"now-loader"
+				"now-loader",
+				"now-checkbox",
+				"now-button"
 			],
 			"uiBuilder": {
 				"associatedTypes": [
