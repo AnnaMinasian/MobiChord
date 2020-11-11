@@ -39,7 +39,7 @@ export const view = (state, dispatch) => {
         ></now-input>
         <now-input
           className={'modal__label'}
-          label="assignmentGroup"
+          label="AssignmentGroup"
           type="text"
           name="assignmentGroup"
           value={assignmentGroup}
