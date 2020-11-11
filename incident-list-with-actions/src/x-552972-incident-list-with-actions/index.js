@@ -6,11 +6,13 @@ import '@servicenow/now-input';
 import '@servicenow/now-loader';
 import styles from './styles.scss';
 import actionsHandlers from './actionHandlers';
+import './filter-section';
 
 const view = (state, { updateState }) => {
 	const { incidents = [], showModal = false, showLoading = false, currentIncident = {} } = state;
 	return (
 		<div>
+			<filter-section></filter-section>
 			<h2>Incidents</h2>
 			<div className="container">
 				{incidents.map(item => {
