@@ -12,7 +12,7 @@ const view = (state, { updateState }) => {
 	const { incidents = [], showModal = false, showLoading = false, currentIncident = {} } = state;
 	return (
 		<div>
-			<filter-section></filter-section>
+			<filter-section />
 			<h2>Incidents</h2>
 			<div className="container">
 				{incidents.map(item => {

@@ -6,8 +6,8 @@
 				"now-modal",
 				"now-input",
 				"now-loader",
-				"now-checkbox",
-				"now-button"
+				"now-button",
+				"now-dropdown"
 			],
 			"uiBuilder": {
 				"associatedTypes": [

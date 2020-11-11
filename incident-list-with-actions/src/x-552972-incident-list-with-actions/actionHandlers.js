@@ -14,17 +14,20 @@ import {
     CLOSE_MODAL,
     SHOW_LOADING,
     HIDE_LOADING
-} from './actions';
+} from './constants';
 const { COMPONENT_BOOTSTRAPPED } = actionTypes;
 
 export default {
     actionHandlers: {
         [COMPONENT_BOOTSTRAPPED]: (coeffects) => {
             const { dispatch } = coeffects;
+
+            let query = {
+                sysparm_display_value: true
+            };
+
             dispatch(SHOW_LOADING);
-            dispatch(FETCH_INCIDENTS, {
-                sysparm_display_value: true,
-            });
+            dispatch(FETCH_INCIDENTS, query);
         },
         [SHOW_LOADING]: ({
             updateState,
@@ -38,7 +41,7 @@ export default {
         },
         [FETCH_INCIDENTS]: createHttpEffect('api/now/table/incident', {
             method: 'GET',
-            queryParams: ['sysparm_display_value'],
+            queryParams: ['sysparm_display_value', 'sysparm_query'],
             successActionType: [FETCH_INCIDENTS_SUCCESS]
         }),
         [FETCH_INCIDENTS_SUCCESS]: (coeffects) => {
@@ -63,7 +66,7 @@ export default {
             }
         },
         [OPEN_INCIDENT_MODAL]: (coeffects) => {
-            const { action, updateState } = coeffects;
+            const { updateState } = coeffects;
 
             updateState({ showModal: true });
         },
@@ -85,6 +88,7 @@ export default {
             dispatch(FETCH_INCIDENTS);
         },
         [DELETE_INCIDENT_FAILED]: (coeffects) => {
+            const { dispatch } = coeffects;
             // console.log(); possible logging here
             dispatch(HIDE_LOADING);
         },
