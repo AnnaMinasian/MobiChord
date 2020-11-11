@@ -7,9 +7,18 @@ import {
 } from '../constants';
 
 export const view = (state, dispatch) => {
-  const { number, shortDescription, assignmentGroup, assignedTo } = state;
-  const search = () => dispatch(SEARCH_BUTTON_CLICKED, { number, shortDescription, assignmentGroup, assignedTo });
+  const { number, shortDescription, assignmentGroup, assignedTo, selectedStateIds } = state;
+  const { incidentStates } = state.properties;
+
+  const search = () => dispatch(SEARCH_BUTTON_CLICKED, { number, shortDescription, assignmentGroup, assignedTo, selectedStateIds });
   const reset = () => dispatch(RESET_BUTTON_CLICKED);
+
+  let items = incidentStates.map(state => (
+    {
+      label: state.label,
+      id: state.sequence
+    }
+  ));
   return (
     <div>
       <h3>Filters</h3>
@@ -42,24 +51,23 @@ export const view = (state, dispatch) => {
           name="assignedTo"
           value={assignedTo}
         ></now-input>
-        <div className="block left">
+        <div className="dropdown">
           <now-dropdown
             placeholder="Select state"
-            select="single"
-            items={[
-              { id: 'new', label: 'New' },
-              { id: 'inProgress', label: 'In Progress' },
-              { id: 'onHold', label: 'On Hold' },
-            ]}
+            select="multi"
+            items={items}
             variant="secondary"
+            name="selectedStateIds"
+            selectedItems={selectedStateIds}
+            value={selectedStateIds}
             size="sm"
           ></now-dropdown>
         </div>
-        <div className="block right">
-          <now-button on-click={search} label="Search" variant="secondary" icon="add-item-above-fill" size="md"></now-button>
+        <div className="justify-end">
+          <now-button className="marginRight" on-click={search} label="Search" variant="secondary" icon="add-item-above-fill" size="md"></now-button>
           <now-button on-click={reset} label="Reset" variant="secondary-negative" size="md"></now-button>
         </div>
       </div>
-    </div>
+    </div >
   );
 };

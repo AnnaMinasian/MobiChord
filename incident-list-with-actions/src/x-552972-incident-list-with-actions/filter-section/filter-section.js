@@ -8,5 +8,8 @@ createCustomElement('filter-section', {
   renderer: { type: snabbdom },
   view,
   styles,
+  properties: {
+    incidentStates: []
+  },
   ...actionHandlers,
 });

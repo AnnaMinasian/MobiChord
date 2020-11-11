@@ -14,10 +14,13 @@ export const HIDE_LOADING = 'HIDE_LOADING';
 export const NOW_INPUT_VALUE_SET = 'NOW_INPUT#VALUE_SET';
 export const SEARCH_BUTTON_CLICKED = 'SEARCH_BUTTON_CLICKED';
 export const RESET_BUTTON_CLICKED = 'RESET_BUTTON_CLICKED';
-export const NOW_DROPDOWN_ITEM_CLICKED = 'NOW_DROPDOWN#ITEM_CLICKED';
+export const NOW_DROPDOWN_ITEM_CLICKED = 'NOW_DROPDOWN#SELECTED_ITEMS_SET';
+export const FETCH_INCIDENT_STATES = 'FETCH_INCIDENT_STATES';
+export const FETCH_INCIDENT_STATES_SUCCESS = 'FETCH_INCIDENT_STATES_SUCCESS';
 export const INITIAL_SEARCH_STATE = {
     number: '',
     shortDescription: '',
     assignmentGroup: '',
     assignedTo: '',
+    selectedStateIds: []
 };

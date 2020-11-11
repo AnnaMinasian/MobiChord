@@ -2,34 +2,25 @@
 
 .container {
     display: flex;
-    max-width: 800px;
+    max-width: 450px;
     margin: 0 auto;
-    flex-flow: row wrap;
-    justify-content: center;
+    flex-flow: column;
+    padding: 10px 20px;
     align-content: center;
+    justify-content: flex-start;
     border: 1px solid gray;
     box-sizing: border-box;
 }
-.container .modal__label {
-    width: 379px;
-    min-width: 200px;
-    margin: 10px;
+.dropdown {
+    margin: 10px 0;
 }
 h3 {
     text-align: center;
 }
-.block {
+.marginRight {
+    margin-right: 20px;
+}
+.justify-end {
     display: flex;
-    flex: 1 1 100%;
-    margin: 5px 10px;
-    column-gap: 20px;
-}
-.block:first-child {
-    margin-right: 10px;
-}
-.left {
-    justify-content: flex-start;
-}
-.right {
     justify-content: flex-end;
 }

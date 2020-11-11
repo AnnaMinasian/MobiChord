@@ -13,7 +13,9 @@ import {
     NOW_MODAL_OPENED_SET,
     CLOSE_MODAL,
     SHOW_LOADING,
-    HIDE_LOADING
+    HIDE_LOADING,
+    FETCH_INCIDENT_STATES,
+    FETCH_INCIDENT_STATES_SUCCESS
 } from './constants';
 const { COMPONENT_BOOTSTRAPPED } = actionTypes;
 
@@ -21,12 +23,11 @@ export default {
     actionHandlers: {
         [COMPONENT_BOOTSTRAPPED]: (coeffects) => {
             const { dispatch } = coeffects;
-
             let query = {
                 sysparm_display_value: true
             };
-
             dispatch(SHOW_LOADING);
+            dispatch(FETCH_INCIDENT_STATES);
             dispatch(FETCH_INCIDENTS, query);
         },
         [SHOW_LOADING]: ({
@@ -113,11 +114,15 @@ export default {
         // First I tried to use Incident table API without setting sysparm_display_value parameter to true. 
         // API returned id-s instead of values for 'state', 'assigned to' etc. fields.
         // I've figured out that it's possible to get these values with api call like below and then map display value.
-
-        // 'FETCH_INCIDENT_STATES': createHttpEffect('api/now/table/sys_choice?sysparm_query=name=incident&element=incident_state', {
-        // 	method: 'GET',
-        // 	queryParams: ['sysparm_query'],
-        // 	successActionType: 'FETCH_INCIDENT_STATES_SUCCESS'
-        // }),
+        [FETCH_INCIDENT_STATES]: createHttpEffect('api/now/table/sys_choice?sysparm_query=name=incident&element=incident_state', {
+            method: 'GET',
+            queryParams: ['sysparm_query'],
+            successActionType: 'FETCH_INCIDENT_STATES_SUCCESS'
+        }),
+        [FETCH_INCIDENT_STATES_SUCCESS]: (coeffects) => {
+            const { action, updateState } = coeffects;
+            const { result } = action.payload;
+            updateState({ incidentStates: result });
+        },
     },
 }

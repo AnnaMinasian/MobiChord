@@ -5,7 +5,7 @@ import {
     INITIAL_SEARCH_STATE,
     FETCH_INCIDENTS,
     NOW_DROPDOWN_ITEM_CLICKED,
-    SHOW_LOADING
+    SHOW_LOADING,
 } from '../constants';
 
 export default {
@@ -14,6 +14,12 @@ export default {
             const { payload } = action;
             updateState({
                 [payload.name]: payload.value,
+            });
+        },
+        [NOW_DROPDOWN_ITEM_CLICKED]: ({ action, updateState }) => {
+            const { payload } = action;
+            updateState({
+                selectedStateIds: payload.value,
             });
         },
         [SEARCH_BUTTON_CLICKED]: ({ dispatch, action }) => {
@@ -32,6 +38,22 @@ export default {
             if (payload.assignedTo) {
                 sysparm_query += `^assigned_toLIKE${payload.assignedTo}`
             }
+            if (payload.selectedStateIds && payload.selectedStateIds.length > 0) {
+                // payload.selectedStateIds.forEach(stateId => {
+                //     sysparm_query += `^ORstate=${stateId}`
+                // });
+                if (payload.selectedStateIds) {
+                    for (let i = 0; i <= payload.selectedStateIds.length; i++) {
+                        if (i == 0) { //for first state selected using AND operator
+                            sysparm_query += `^state=${payload.selectedStateIds[i]}`
+                        }
+                        else { //for all others using OR operator
+                            sysparm_query += `^ORstate=${payload.selectedStateIds[i]}`
+
+                        }
+                    }
+                }
+            }
             let query = {
                 sysparm_query,
                 sysparm_display_value: true
@@ -41,8 +63,6 @@ export default {
         [RESET_BUTTON_CLICKED]: (coeffects) => {
             const { updateState } = coeffects;
             updateState(INITIAL_SEARCH_STATE);
-        },
-        [NOW_DROPDOWN_ITEM_CLICKED]: () => {
         },
     },
 }

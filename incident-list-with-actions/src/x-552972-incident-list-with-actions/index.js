@@ -9,10 +9,10 @@ import actionsHandlers from './actionHandlers';
 import './filter-section';
 
 const view = (state, { updateState }) => {
-	const { incidents = [], showModal = false, showLoading = false, currentIncident = {} } = state;
+	const { incidents = [], showModal = false, showLoading = false, currentIncident = {}, incidentStates = [] } = state;
 	return (
 		<div>
-			<filter-section />
+			<filter-section incidentStates={incidentStates} />
 			<h2>Incidents</h2>
 			<div className="container">
 				{incidents.map(item => {
